@@ -1,0 +1,24 @@
+<div class="character-container" *ngIf="character">
+ <img src={{character.image}}/> 
+ <p class="random-character-name">{{character.name}}</p>  
+</div>
+
+<div *ngIf="isLoading" class="lds-hourglass"></div>
+
+<div class="generate-button-container">
+    <input type="button" value="Generate" (click)="getCharacter()">
+    <input *ngIf="allCharacters.length === 0" type="button" value="See All" (click)="getAllCharacters()">
+    <input *ngIf="allCharacters.length !== 0" type="button" value="Hide All" (click)="hideAllCharacters()">
+</div>
+
+
+<div *ngIf="allCharacters.length !== 0" class="all-characters-container">
+    <div *ngFor="let char of allCharacters">
+        <img src={{char.image}}/>
+        <p class="all-character-names">{{char.name}}</p>
+    </div>
+</div>
+
+<div *ngIf="isLoadingMore" class="lds-hourglass"></div>
+
+    
